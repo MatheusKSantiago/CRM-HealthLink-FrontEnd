@@ -18,6 +18,28 @@ const especialidades = async ()=>{
     });
 
 }
+const minhasConsultas = async ()=> {
+    const response = await fetch(`http://localhost:8080/api/patient/appointments/${localStorage.getItem("email")}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem("token")}`,
+            'Accept': 'application/json',
+          }
+    });
+
+    const consultas = await response.json();
+    const ul = document.getElementById("appointments-list")
+    consultas.forEach(consulta=>{
+        let li = document.createElement('li')
+        li.textContent = JSON.stringify(consulta);
+        ul.appendChild(li);
+    })
+}
+
+function iniciarTelaPaciente(){
+    especialidades();
+    minhasConsultas();
+}
 
 function irParaMarcarConsulta(){
     localStorage.setItem("especialidade",document.getElementById("especialidadeSelect").value)

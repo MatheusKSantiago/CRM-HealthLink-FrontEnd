@@ -1,0 +1,11 @@
+#appointments-list li{
+    background-color: #04941c1f;
+    
+    margin-bottom: 3px;
+}
+#appointments-list p{
+    color: rgb(70, 70, 70);
+    padding: 0.4em;
+    margin: 0;
+    font-weight: bold;
+}

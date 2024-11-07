@@ -72,3 +72,6 @@ async function popularPacienteMarcarConsulta(){
     }
 }
 
+function voltarPacienteHome(){
+    window.location.href = "/pages/paciente/home/patientPage.html"
+}

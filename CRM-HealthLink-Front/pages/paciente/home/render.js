@@ -31,7 +31,12 @@ const minhasConsultas = async ()=> {
     const ul = document.getElementById("appointments-list")
     consultas.forEach(consulta=>{
         let li = document.createElement('li')
-        li.textContent = JSON.stringify(consulta);
+        let pHorario = document.createElement('p')
+        let pMedicoEspecialidade = document.createElement('p')
+        pHorario.textContent = `${consulta["inicio"]} - ${consulta["fim"]}`
+        pMedicoEspecialidade.textContent = ` Médico: ${consulta["doctorName"]} / ${consulta["speciality"]}`
+        li.appendChild(pMedicoEspecialidade)
+        li.appendChild(pHorario)
         ul.appendChild(li);
     })
 }
